@@ -13,6 +13,7 @@
    - امنع الضمائر الزائدة (اكتب "ما السبب" وليس "ما هو السبب").
    - ضع تنوين الفتح على الحرف الذي يسبق الألف (مثل: كتابًا، قلمًا، جزءًا).
    - استثناء إلزامي للتنوين: إذا انتهت الكلمة بألف مسبوقة بلام، ضع التنوين على الألف (مثل: أهلاً، أولاً، أملاً، بدلاً).
+6. الحفاظ على شمولية القالب: حافظ دائماً على المنطق البرمجي (JavaScript) ودوال العرض (Render Functions) والتصميم لجميع الأقسام والأنشطة المتاحة في الكود، حتى تلك التي لم يتم استدعاؤها أو استخدامها في كائن APP_DATA الحالي، لضمان بقاء التطبيق كقالب مرن وشامل قابل لإعادة الاستخدام في دروس أخرى.
 ======================================================================
 -->
 <html lang="ar" dir="rtl">
@@ -200,28 +201,35 @@
                     type: "intro",
                     title: "قبل أن نبدأ",
                     theme: "sky",
-                    description: "مدخل ضروري لفهم طبيعة كتاب الأيام وخصائص أسلوب عميد الأدب العربي طه حسين، قبل الغوص في أحداث الفصلين.",
+                    description: "«الأيام» ليست مجرد سيرة ذاتية، بل رحلة إرادة قهرت الظلام، نكتشف فيها كيف بنى طه حسين عالمه الخاص.",
                     content: [
                         {
                             icon: "📖",
-                            title: "الجنس والنمط الأدبي",
-                            desc: "ينتمي الكتاب إلى فن «السيرة الذاتية»، وهو فن يعتمد فيه الكاتب على ذاكرته لاسترجاع أحداث حياته.",
+                            title: "الجنس الأدبي",
+                            desc: "فن «السيرة الذاتية»، يعتمد فيه الكاتب على ذاكرته لاسترجاع أحداث حياته ومواقفه المؤثرة.",
                             examples: "<p>النمط الغالب هو النمط السردي الوصفي.</p>",
                             theme: "blue"
                         },
                         {
                             icon: "✍️",
                             title: "خصائص الأسلوب",
-                            desc: "تميز أسلوب طه حسين بسهولة الألفاظ، والإطناب، والتفصيل والتكرار لتأكيد المعنى.",
-                            examples: "<p>استخدم الكاتب «ضمير الغائب» (هو) ليضفي الموضوعية والحيادية على قصته.</p>",
+                            desc: "تميز الأسلوب بالإطناب، والتفصيل، واستخدام «ضمير الغائب» (هو) لإضفاء الموضوعية على السرد.",
+                            examples: "<p>ألفاظه سهلة وتعتمد على الإيقاع الموسيقي.</p>",
                             theme: "emerald"
                         },
                         {
-                            icon: "👂",
+                            icon: "👁️",
                             title: "عالم الحواس",
-                            desc: "لتعويض فقدان البصر، اعتمد الكاتب في وصفه على حواس أخرى لرسم بيئته بدقة.",
-                            examples: "<p>وظف الكاتب حاستي «السمع واللمس» لتصوير عالمه الخارجي ببراعة.</p>",
+                            desc: "لتعويض فقدان البصر، وظف الكاتب حواسه الأخرى (كالسمع واللمس) لتصوير بيئته.",
+                            examples: "<p>رسم الكاتب عالمه الخارجي بدقة مذهلة.</p>",
                             theme: "amber"
+                        },
+                        {
+                            icon: "🧠",
+                            title: "ذاكرة غريبة",
+                            desc: "يخبرنا الكاتب أن ذاكرة الإنسان غريبة؛ تنتقي ما تحفظه وتترك الباقي.",
+                            examples: "<p>تتذكر أحداثًا بوضوح وتمحو أخرى تمامًا.</p>",
+                            theme: "violet"
                         }
                     ]
                 },
@@ -243,7 +251,7 @@
                     ]
                 },
 
-                // 3. البطاقات المنزلقة (Story Mode) - أحداث الفصلين
+                // 3. البطاقات المنزلقة (Story Mode)
                 {
                     id: "story_1",
                     type: "story",
@@ -253,51 +261,52 @@
                     slides: [
                         { title: "السياج", text: "طفل صغير يقف أمام سياج من القصب، أطول من قامته ومحكم لا يمكن اختراقه. يمثل هذا السياج حدود عالمه المادي.", icon: "🚧" },
                         { title: "الشاعر", text: "تغرب الشمس، فيخرج الصبي ليستمتع بنشيد «حسن الشاعر» وأخباره الغريبة، وهي لحظة سعادته اليومية.", icon: "🌇" },
-                        { title: "الألم الصامت", text: "تقطع أخته متعته وتدخله البيت، حيث تضع أمه سائلًا يؤذيه في عينيه. يتألم ولكنه لا يبكي، لأنه يكره أن يكون بكاءً كأخته.", icon: "💧" },
+                        { title: "الألم الصامت", text: "تقطع أخته متعته وتدخله البيت، حيث تضع أمه سائلًا مؤذيًا في عينيه. يتألم ولكنه لا يبكي، لأنه يكره أن يكون بكاءً كأخته.", icon: "💧" },
                         { title: "أوهام الليل", text: "يلتف الصبي باللحاف خوفًا من «العفاريت» التي يتخيل أنها تملأ أرجاء البيت ولا تختفي إلا مع أصوات الفجر.", icon: "👻" },
                         { title: "عالم القناة الخيالي", text: "يظن الصبي أن القناة عالم ممتلئ بالتماسيح، والأسماك العمالقة التي تبتلع الأطفال، ويحلم بأن يجد «خاتم سليمان» ليعبر إلى الضفة الأخرى.", icon: "💍" },
-                        { title: "القناة الحقيقية", text: "في الواقع، القناة ضئيلة، يجتازها الشاب النشيط قفزًا، وتجف أحيانًا ليبحث الأطفال فيها عن صغار السمك.", icon: "🏞️" },
+                        { title: "القناة الحقيقية", text: "في الواقع، القناة ضئيلة جدًّا، يجتازها الشاب النشيط قفزًا، وتجف أحيانًا ليبحث الأطفال فيها عن صغار السمك.", icon: "🏞️" },
                         { title: "ذاكرة غريبة", text: "يخبرنا الكاتب أن ذاكرة الإنسان غريبة؛ تتذكر أحداثًا معينة بوضوح كقطف النعناع وعبور القناة، وتمحو أحداثًا أخرى تمامًا كأنها لم تكن.", icon: "🧠" }
                     ]
                 },
 
-                // 4. النص التفاعلي (النشاط الجديد) - الغوص في النص
+                // 4. المطابقة والتوصيل 
+                {
+                    id: "test_matching",
+                    type: "matching",
+                    title: "المطابقة والتوصيل",
+                    theme: "indigo",
+                    description: "انقر على الكلمة من القائمة يمينًا، ثم انقر على ما يناسبها من القائمة يسارًا لربط عناصر القصة بدلالاتها.",
+                    pairs: [
+                        { id: "m1", right: "سياج القصب", left: "يمثل حدود عالمه المادي المحدود." },
+                        { id: "m2", right: "الشاعر حسن", left: "منبع السعادة الوحيد للصبي وقت الغروب." },
+                        { id: "m3", right: "كلبا العدويين", left: "خطر محقق يتربص بالصبي يمين القناة." },
+                        { id: "m4", right: "سعيد وكوابس", left: "مصدر الشر والأذى الحقيقي شمال القناة." },
+                        { id: "m5", right: "خاتم سليمان", left: "طموح الصبي للعبور واستكشاف الضفة الأخرى." },
+                        { id: "m6", right: "اللحاف", left: "حصنه ووسيلة حمايته من العفاريت ليلاً." }
+                    ]
+                },
+
+                // 5. النص التفاعلي (Hotspot)
                 {
                     id: "test_hotspot",
                     type: "hotspot",
                     title: "استخراج من النص",
                     theme: "emerald",
-                    description: "اقرأ الفقرات المقتبسة من كتاب الأيام بعناية، ثم انقر مباشرة على الكلمات أو التراكيب التي تُحقق المطلوب من السؤال لتلوينها.",
+                    description: "اقرأ الفقرات المقتبسة من كتاب الأيام بعناية، ثم انقر مباشرة على الكلمات التي تُحقق المطلوب لتلوينها.",
                     questions: [
                         {
-                            task: "استخرج من الفقرة الآتية (٣ تراكيب) تدل على ضعف ذاكرة الكاتب وانعدام يقينه بشأن ذكريات طفولته المبكرة.",
+                            task: "استخرج من الفقرة الآتية (٣ تراكيب) تدل على ضعف ذاكرة الكاتب وانعدام يقينه بشأن أحداث الماضي البعيد.",
                             requiredCount: 3,
                             paragraph: [
                                 { id: "h1_1", text: "لا يذكر ", isTarget: true },
                                 { id: "h1_2", text: "لهذا اليوم اسمًا، ولا يستطيع أن يضعه حيث وضعه الله من الشهر والسنة. بل ", isTarget: false },
                                 { id: "h1_3", text: "لا يستطيع ", isTarget: true },
-                                { id: "h1_4", text: "أن يذكر من هذا اليوم وقتًا بعينه، وإنما ", isTarget: false },
-                                { id: "h1_5", text: "يقرب ذلك تقريبًا. ", isTarget: true },
-                                { id: "h1_6", text: "أكبر ظنه ", isTarget: true },
-                                { id: "h1_7", text: "أن هذا الوقت كان يقع في فجر ذلك اليوم أو في عشائه.", isTarget: false }
+                                { id: "h1_4", text: "أن يذكر من هذا اليوم وقتًا بعينه، وإنما يقرب ذلك تقريبًا. ", isTarget: false },
+                                { id: "h1_5", text: "أكبر ظنه ", isTarget: true },
+                                { id: "h1_6", text: "أن هذا الوقت كان يقع في فجر ذلك اليوم أو في عشائه.", isTarget: false }
                             ],
-                            explanation: "استخدم الكاتب أفعالاً وتراكيب تفيد الشك مثل: (لا يذكر، لا يستطيع، يقرّب ذلك، أكبر ظنه) ليُبرز تأثير الزمن الطويل على ضبابية ذاكرته.",
-                            hint: "ابحث عن كلمات تفيد النفي لعملية التذكر، أو عبارات تدل على الظن والتقريب."
-                        },
-                        {
-                            task: "لتعويض فقدان البصر، وظف طه حسين الحواس الأخرى بكثافة. استخرج من الفقرة (كلمتين) تدلان على اعتماده على حاسة اللمس.",
-                            requiredCount: 2,
-                            paragraph: [
-                                { id: "h2_1", text: "يُرجح ذلك لأن ", isTarget: false },
-                                { id: "h2_2", text: "وجهه تلقى ", isTarget: true },
-                                { id: "h2_3", text: "هواءً فيه شيء من ", isTarget: false },
-                                { id: "h2_4", text: "البرد ", isTarget: true },
-                                { id: "h2_5", text: "لم تذهب به ", isTarget: false },
-                                { id: "h2_6", text: "حرارة ", isTarget: true },
-                                { id: "h2_7", text: "الشمس. ولأنه على جهله حقيقة النور والظلمة، يكاد يذكر أن ضوءًا خفيفًا كان يغشى ظلمة المكان.", isTarget: false }
-                            ],
-                            explanation: "كلمات مثل (وجهه تلقّى، البرد، حرارة) تصف إحساسه المباشر ببرودة الهواء وحرارة الشمس على بشرته، وهذا اعتماد كلي على اللمس.",
-                            hint: "كيف يدرك الأعمى وجود الهواء وبرودته وحرارة الشمس من حوله؟"
+                            explanation: "استخدم الكاتب أفعالًا وتراكيب تفيد الشك مثل: (لا يذكر، لا يستطيع، أكبر ظنه) ليُبرز تأثير الزمن الطويل على ضبابية ذاكرته.",
+                            hint: "ابحث عن كلمات تفيد النفي لعملية التذكر، أو عبارات تدل على الظن."
                         },
                         {
                             task: "استخرج من النص الآتي (٣ كلمات) ترتبط ارتباطًا مباشرًا بأوهام الصبي ومخاوفه الليلية التي نسجها خياله.",
@@ -317,25 +326,7 @@
                     ]
                 },
 
-                // 5. قسم البطاقات التعليمية القلابة
-                {
-                    id: "test_flashcards",
-                    type: "flashcards",
-                    title: "الوجه الآخر",
-                    theme: "indigo",
-                    description: "اضغط على البطاقة لتقليبها واربط العناصر المادية للقصة بدلالاتها النفسية.",
-                    cards: [
-                        { front: "سياج القصب", back: "حد فاصل ومانع", explanation: "يمثل نهاية الفضاء المنزلي وبداية العالم الخارجي المجهول الذي لا يستطيع تجاوزه.", hint: "ماذا يعني السياج المادي بالنسبة للطفل؟" },
-                        { front: "السائل المؤذي", back: "دواء الأم", explanation: "تضعه الأم في عينيه، لا يشتكي منه الصبي ليثبت قوة تحمله وصبره.", hint: "لماذا لم يبكِ عند وضعه؟" },
-                        { front: "اللحاف", back: "وسيلة الحماية", explanation: "حصن الصبي ووسيلته الوحيدة للحماية من أوهامه والعفاريت التي يتخيلها ليلًا.", hint: "بم كان يغطي نفسه ليلًا؟" },
-                        { front: "خاتم سليمان", back: "حلم العبور", explanation: "حلم الصبي الذي طمع أن يجده في بطن سمكة ليحمله خادما الخاتم عبر القناة.", hint: "ماذا كان يبحث عنه في القناة؟" },
-                        { front: "كلبا العدويين", back: "خطر يمين القناة", explanation: "يمثلان الخطر الذي يحف يمين القناة ويمنعه من استكشافها بحرية.", hint: "ما الخطر على يمين القناة؟" },
-                        { front: "سعيد الأعرابي وكوابس", back: "خطر يسار القناة", explanation: "يمثلان مصدر الشر والخطر الذي يحف شمال (يسار) القناة.", hint: "ما الخطر على شمال القناة؟" },
-                        { front: "ذاكرة الإنسان", back: "ذاكرة غريبة", explanation: "يراها الكاتب غريبة لأنها تنتقي؛ تتذكر بعض الحوادث بوضوح وتمحو أخرى كأن لم تكن.", hint: "كيف وصف الكاتب الذاكرة؟" }
-                    ]
-                },
-
-                // 6. قسم التصنيف في صناديق
+                // 6. صناديق التصنيف (Classify)
                 {
                     id: "test_classify",
                     type: "classify",
@@ -347,10 +338,10 @@
                         { id: 'cat_imagination', label: 'القناة في خيال الصبي', theme: 'violet' }
                     ],
                     questions: [
-                        { text: 'حفرة مستطيلة يبحث فيها الصبيان عن الأسماك.', categoryId: 'cat_real', explanation: 'هذا هو واقع القناة عندما تجف.', hint: 'هل هذا يحدث حقيقةً؟' },
+                        { text: 'حفرة مستطيلة يبحث فيها الصبيان عن الأسماك.', categoryId: 'cat_real', explanation: 'هذا هو واقع القناة عندما تجف المياه.', hint: 'هل هذا يحدث حقيقةً؟' },
                         { text: 'عالم تملؤه التماسيح التي تبتلع الناس.', categoryId: 'cat_imagination', explanation: 'هذا ما كان يتخيله الصبي بسبب حكايات الريف.', hint: 'هل توجد تماسيح في القناة الصغيرة؟' },
                         { text: 'يعبرها الرجل وهي ممتلئة دون أن يبلغ الماء إبطيه.', categoryId: 'cat_real', explanation: 'هذا يدل على ضآلة القناة في الواقع.', hint: 'وصف واقعي لعمقها.' },
-                        { text: 'مسحورون يعيشون تحت مائها ليلًا ونهارًا.', categoryId: 'cat_imagination', explanation: 'من خيالات الصبي المستمدة من القصص الشعبية.', hint: 'هل يوجد مسحورون حقًا؟' },
+                        { text: 'مسحورون يعيشون تحت مائها.', categoryId: 'cat_imagination', explanation: 'من خيالات الصبي المستمدة من القصص الشعبية.', hint: 'هل يوجد مسحورون حقًا؟' },
                         { text: 'أسماك طوال عراض تبتلع الأطفال.', categoryId: 'cat_imagination', explanation: 'مخاوف خيالية رسمها الصبي في عقله.', hint: 'هل يمكن لسمكة في القناة ابتلاع طفل؟' },
                         { text: 'عرضها ضئيل يجتازها الشاب النشيط قفزًا.', categoryId: 'cat_real', explanation: 'دليل واقعي على ضيق عرض القناة.', hint: 'وصف واقعي لعرضها.' },
                         { text: 'تحوي في قاعها خاتم الملك لسليمان.', categoryId: 'cat_imagination', explanation: 'أمنية خيالية طمع الصبي في تحقيقها.', hint: 'حلم أسطوري.' },
@@ -358,53 +349,111 @@
                     ]
                 },
 
-                // 7. فرز البطاقات (المعجم الدلالي)
+                // 7. اكتشاف الأخطاء وتصويبها (Error Correction)
                 {
-                    id: "test_sort",
-                    type: "sort",
-                    title: "فرز البطاقات",
-                    theme: "slate",
-                    description: "صنف الألفاظ والأحداث حسب دلالتها عند الكاتب بين (الشك والترجيح) وبين (اليقين والواقع).",
+                    id: "test_error",
+                    type: "error_correction",
+                    title: "اكتشاف الأخطاء",
+                    theme: "violet",
+                    description: "اقرأ الجملة بدقة، وانقر على الكلمة المكتوبة بخطأ، ثم اختر التصويب الصحيح من الخيارات التي ستظهر لك.",
                     questions: [
-                        { text: "أكبر ظنه", options: ['الشك والترجيح', 'اليقين والواقع'], correct: 0, hint: 'الظن عكس اليقين.', explanation: 'من عبارات الترجيح والشك لضعف الذاكرة.' },
-                        { text: "يمضي والده إلى عمله", options: ['الشك والترجيح', 'اليقين والواقع'], correct: 1, hint: 'حدث متكرر ومؤكد يوميًا.', explanation: 'تدل على حقيقة واقعة ويقينية.' },
-                        { text: "لا يستطيع أن يضع اليوم", options: ['الشك والترجيح', 'اليقين والواقع'], correct: 0, hint: 'عجز عن التحديد.', explanation: 'تدل على انعدام اليقين الزمني للحدث.' },
-                        { text: "تأخذه أخته بقوة وتدخله البيت", options: ['الشك والترجيح', 'اليقين والواقع'], correct: 1, hint: 'فعل حقيقي كانت تقوم به أخته وتؤلمه.', explanation: 'حدث واقعي ومؤلم يتذكره بوضوح تام.' },
-                        { text: "يتوضأ والده ويصلي", options: ['الشك والترجيح', 'اليقين والواقع'], correct: 1, hint: 'عادات يومية ثابتة لوالده.', explanation: 'حدث واقعي ومؤكد استقر في ذاكرته.' },
-                        { text: "يكاد يذكر ضوءًا خفيفًا", options: ['الشك والترجيح', 'اليقين والواقع'], correct: 0, hint: 'اقترب من التذكر ولكنه لم يجزم.', explanation: 'تفيد الشك وعدم الجزم.' }
+                        {
+                            text: "كان الصبي يخاف من الأرانب ليلاً.",
+                            words: ["كان", "الصبي", "يخاف", "من", "الأرانب", "ليلاً."],
+                            errorWordIndex: 4,
+                            options: ["العفاريت", "الكلاب", "الظلام"],
+                            correctOptionIndex: 0,
+                            hint: "كائنات خيالية مرعبة يعتقد أنها تخرج في الظلام.",
+                            explanation: "الصبي كان يخاف من العفاريت ليلاً، أما الأرانب فكان يحسدها لأنها تتخطى السياج."
+                        },
+                        {
+                            text: "كان يسكن يمين القناة سعيد.",
+                            words: ["كان", "يسكن", "يمين", "القناة", "سعيد."],
+                            errorWordIndex: 4,
+                            options: ["الشاعر", "كلبا العدويين", "الفتى"],
+                            correctOptionIndex: 1,
+                            hint: "حيوانات ضخمة ومخيفة لا ينقطع نباحها.",
+                            explanation: "كلبا العدويين كانا يمين القناة، بينما سعيد الأعرابي وكوابس كانا شمال القناة."
+                        },
+                        {
+                            text: "تمنى الصبي أن تبتلعه بقرة ليجد الخاتم.",
+                            words: ["تمنى", "الصبي", "أن", "تبتلعه", "بقرة", "ليجد", "الخاتم."],
+                            errorWordIndex: 4,
+                            options: ["سمكة", "سفينة", "موجة"],
+                            correctOptionIndex: 0,
+                            hint: "كائن بحري ضخم في خياله.",
+                            explanation: "تمنى أن تبتلعه سمكة ضخمة ليجد في بطنها خاتم سليمان الذي سيحقق له المعجزات."
+                        },
+                        {
+                            text: "القناة في الواقع كانت محيطًا واسعًا.",
+                            words: ["القناة", "في", "الواقع", "كانت", "محيطًا", "واسعًا."],
+                            errorWordIndex: 4,
+                            options: ["حفرةً", "بحرًا", "نهرًا"],
+                            correctOptionIndex: 0,
+                            hint: "مكان ضيق يجف أحيانًا.",
+                            explanation: "القناة كانت حفرة مستطيلة ضئيلة العرض يجتازها الشاب النشيط قفزًا."
+                        },
+                        {
+                            text: "السائل الذي تضعه أمه كان مريحًا.",
+                            words: ["السائل", "الذي", "تضعه", "أمه", "كان", "مريحًا."],
+                            errorWordIndex: 5,
+                            options: ["مؤذيًا", "شفاءً", "باردًا"],
+                            correctOptionIndex: 0,
+                            hint: "كان يسبب له الألم الشديد ولكنه كان يكتمه.",
+                            explanation: "السائل كان مؤذيًا جدًّا لعينيه، ولكنه تحمل الألم ولم يبكِ كبرياءً."
+                        },
+                        {
+                            text: "استمتع الصبي وقت الغروب بنشيد أخته.",
+                            words: ["استمتع", "الصبي", "وقت", "الغروب", "بنشيد", "أخته."],
+                            errorWordIndex: 5,
+                            options: ["الشاعر", "الأعرابي", "العدويين"],
+                            correctOptionIndex: 0,
+                            hint: "رجل كان يغني وينشد قصص الأبطال.",
+                            explanation: "كان يستمتع بنشيد الشاعر حسن الذي كان يروي قصص أبي زيد الهلالي وخليفة."
+                        },
+                        {
+                            text: "كان الصبي يحسد الأرانب لسرعتها.",
+                            words: ["كان", "الصبي", "يحسد", "الأرانب", "لسرعتها."],
+                            errorWordIndex: 4,
+                            options: ["لتخطيها السياج", "لأكلها الجزر", "لاختبائها"],
+                            correctOptionIndex: 0,
+                            hint: "فعل كان الصبي يعجز عن القيام به بسبب طول السياج.",
+                            explanation: "كان يحسدها لأنها كانت تستطيع أن تتخطى سياج القصب وثبًا، بينما هو محتجز خلفه."
+                        }
                     ]
                 },
 
-                // 8. الحوار التفاعلي (Chatbot Quiz)
-                {
-                    id: "test_chatbot",
-                    type: "chatbot",
-                    title: "الحوار التفاعلي",
-                    theme: "sky",
-                    description: "دعنا نغوص في تحليل أعمق لنفسية الصبي وشخصيته بعيدًا عن حفظ الأحداث.",
-                    questions: [
-                        { teacherMsg: "أهلًا بك! هل لاحظت أن الصبي كان يتألم بشدة عندما تضع أمه الدواء في عينيه، ورغم ذلك لم يكن يبكي أبدًا؟ ما السبب في رأيك؟", options: ["لأنه كان يكره أن يكون بكاءً شكاءً مثل أخته الصغيرة.", "لأن الدواء لم يكن مؤلمًا جدًا."], correctIndex: 0, feedback: "ممتاز! هذا الموقف يكشف لنا عن شخصية قوية تتحمل الألم وترفض الشكوى أو الضعف." },
-                        { teacherMsg: "شخصية قوية بالفعل! ولكن في الليل، كان يلف نفسه باللحاف بالكامل، ما السر وراء ذلك؟", options: ["كان يخاف من العفاريت التي يتخيلها تملأ الغرفة.", "لأنه كان يشعر ببرد شديد في غرفته الصغيرة."], correctIndex: 0, feedback: "بالضبط، خياله كان خصبًا ومرعبًا ليلًا، واللحاف كان حصنه المادي الوحيد ضد تلك الأوهام!" },
-                        { teacherMsg: "ومتى كانت تنتهي هذه الأوهام والمخاوف؟", options: ["بطلوع الفجر وسماع أصوات النساء يعدن بجرار الماء.", "عندما يستيقظ والده لشرب القهوة."], correctIndex: 0, feedback: "صحيح! الفجر والضجيج البشري كان يمثل له النجاة وبداية النشاط، فيتحول إلى «عفريت» كثير الحركة." },
-                        { teacherMsg: "ننتقل للقناة، لماذا كان الصبي يتمنى بشدة أن تبتلعه سمكة ضخمة هناك؟", options: ["ليظفر في بطنها بخاتم سليمان ويطلب من الخادم أن يعبر به.", "لكي يتخلص من آلام عينيه ومتاعب حياته الصعبة."], correctIndex: 0, feedback: "هذا يوضح طموحه للعبور واستكشاف العالم المجهول خلف القناة، وهروبه من حدوده الضيقة!" },
-                        { teacherMsg: "من خلال قراءتك للدرس، كيف كان أثر «السياج» على نفسية الصبي في رأيك؟", options: ["كان يشعره بضيق حدوده ويكبت رغبته في الانطلاق والاستكشاف.", "كان يشعره بالأمان المطلق والحماية من حيوانات القرية."], correctIndex: 0, feedback: "تحليل دقيق! السياج المادي الطويل كان يمثل قيدًا له ويحد من حريته وانطلاقه في الحياة." }
-                    ]
-                },
-
-                // 9. قسم الاختيار من متعدد - الأحداث والتفاصيل
+                // 8. الاختيار من متعدد (MCQ) الأحداث
                 {
                     id: "test_mcq_events",
                     type: "mcq",
                     title: "أحداث الفصلين",
                     theme: "blue",
-                    description: "تأكد من إلمامك بأهم التفاصيل والأحداث في الفصلين الأول والثاني.",
+                    description: "اختر الإجابة الصحيحة لاختبار فهمك واستيعابك لأحداث الفصلين.",
                     questions: [
-                        { text: "ما الوقت الذي رجحه الصبي لبداية أحداث يومه الأول الذي تذكره؟", options: ['وقت الظهيرة الحار.', 'فجر ذلك اليوم أو عشاؤه.', 'منتصف الليل المظلم.'], correct: 1, hint: 'وقت كان هواءه باردًا وحركة الناس فيه قليلة.', explanation: 'رجح الكاتب أن الذكرى الأولى كانت في فجر ذلك اليوم أو عشائه لوجود هواء خفيف وضوء خافت.' },
-                        { text: "بم كان الصبي يحسد الأرانب فيما يخص سياج القصب؟", options: ['أنها تأكل من القصب بحرية تامة.', 'أنها كانت تقدر على تخطيه بسهولة.', 'أنها لا تخاف من العفاريت ليلًا.'], correct: 1, hint: 'شيء لم يكن يقدر هو على فعله بسبب قصره.', explanation: 'كان يحسدها لأنها كانت تقدر على تخطي السياج وثبًا بسهولة، بينما هو محتجز خلفه.' },
-                        { text: "لماذا لم يكن الصبي يستطيع النوم بعد أن تنيمه أخته وتلقي عليه اللحاف؟", options: ['خوفًا من التخيلات والأشباح والعفاريت.', 'بسبب الألم الشديد في عينيه من السائل.', 'لأنه يريد الخروج والاستماع للشاعر مجددًا.'], correct: 0, hint: 'أشياء يتخيل أنها تخرج من زوايا الغرفة في الظلام.', explanation: 'بسبب التخيلات المرعبة من الأشباح والعفاريت التي كان يتصورها تملأ البيت.' },
-                        { text: "متى كان الصبي يتخلص من خوفه ويتحول لعفريت أشد حركة ونشاطًا؟", options: ['بطلوع الفجر وسماع أصوات النساء.', 'عندما يخرج لسماع نشيد الشاعر.', 'عندما تتركه أخته وحيدًا في الغرفة.'], correct: 0, hint: 'وقت زوال الخوف وعودة الحركة الطبيعية.', explanation: 'بطلوع الفجر وسماع غناء النساء وهن يعدن بجرار الماء، ينتهي خوفه ويبدأ نشاطه.' },
-                        { text: "من كان يسكن عن يمين القناة ويمثل خطرًا حقيقيًا على الصبي في الواقع؟", options: ['سعيد الأعرابي وزوجته كوابس.', 'كلبان ضخمان للعدويين.', 'حسن الشاعر وأصدقاؤه.'], correct: 1, hint: 'حيوانات خطيرة لا ينقطع نباحها.', explanation: 'عن يمينه يوجد كلبان ضخمان للعدويين، بينما سعيد الأعرابي وكوابس كانا عن شماله.' },
-                        { text: "ما لون اللهو الذي مال إليه الصبي ليعوض حرمانه وقيده البصري والمادي؟", options: ['سماع الشعر بصوت الشاعر والقصص.', 'اللعب بالحديد والنار أمام باب الدار.', 'السباحة في القناة المجاورة للبيت.'], correct: 0, hint: 'لهو يعتمد على حاسة السمع وتوسيع الخيال.', explanation: 'مال إلى سماع الشعر والقصص والأخبار من حسن الشاعر، وهو ما وسع مداركه وخياله.' }
+                        { text: "ما الوقت الذي رجح الصبي أن أحداث اليوم الأول وقعت فيه؟", options: ['وقت الظهيرة الحار.', 'فجر ذلك اليوم أو عشائه.', 'منتصف الليل.'], correct: 1, hint: 'وقت كان هواءه باردًا وحركة الناس فيه قليلة.', explanation: 'رجح الكاتب أن الذكرى الأولى كانت في فجر ذلك اليوم أو عشائه لبرودة الهواء وضعف النور.' },
+                        { text: "لماذا لم يكن الصبي يستطيع النوم بعد أن تنيمه أخته وتلقي عليه اللحاف؟", options: ['خوفًا من التخيلات والعفاريت.', 'بسبب الألم الشديد في عينيه.', 'لأنه يريد الاستماع للشاعر مجددًا.'], correct: 0, hint: 'أشياء يتخيل أنها تخرج في الظلام.', explanation: 'بسبب التخيلات من الأشباح والعفاريت التي كان يتصورها تملأ زوايا الغرفة.' },
+                        { text: "متى كان الصبي يتحول عفريتًا أشد حركة ونشاطًا؟", options: ['بطلوع الفجر وسماع أصوات النساء.', 'عندما يخرج لسماع نشيد الشاعر.', 'عندما تتركه أخته وحيدًا.'], correct: 0, hint: 'وقت زوال الخوف وعودة الحركة.', explanation: 'بطلوع الفجر وسماع أصوات النساء يعدن بالماء وتغنيتهن.' },
+                        { text: "ما لون اللهو الذي مال إليه الصبي ليعوض حرمانه وقيده؟", options: ['سماع الشعر بصوت الشاعر والقصص.', 'اللعب بالحديد أمام باب الدار.', 'السباحة في القناة المجاورة.'], correct: 0, hint: 'لهو يعتمد على حاسة السمع.', explanation: 'مال إلى سماع الشعر والقصص والأخبار، وهو ما وسع مداركه.' },
+                        { text: "ما الأسلوب البلاغي الذي اعتمده الكاتب في التعبير عن عدم تذكره للوقت (في فجره أو في عشائه)؟", options: ['الترادف.', 'التضاد.', 'الإطناب.'], correct: 1, hint: 'الفجر والعشاء كلمتان متضادتان في الوقت.', explanation: 'الفجر والعشاء يمثلان حالة من التضاد وظفها الكاتب للتعبير عن حيرته.' },
+                        { text: "ما الدافع الذي جعل الكاتب يستخدم ضمير الغائب (هو) عند سرد قصة حياته؟", options: ['لإظهار الحيادية والموضوعية وإبعاد الذات.', 'للتقليل من شأن بطل القصة.', 'لأنه يتحدث عن شخص آخر غيره.'], correct: 0, hint: 'يريد أن يكون موضوعيًا.', explanation: 'استخدام ضمير الغائب يهدف إلى إظهار الحيادية والموضوعية في السرد.' }
+                    ]
+                },
+
+                // 9. الحوار التفاعلي (Chatbot Quiz)
+                {
+                    id: "test_chatbot",
+                    type: "chatbot",
+                    title: "الحوار التفاعلي",
+                    theme: "sky",
+                    description: "أجب عن أسئلة المعلم للغوص في نفسية الصبي بعيدًا عن الحفظ التلقيني.",
+                    questions: [
+                        { teacherMsg: "أهلاً بك! هل لاحظت أن الصبي كان يتألم بشدة عندما تضع أمه الدواء في عينيه، ورغم ذلك لم يكن يبكي أبدًا؟ ما السبب في رأيك؟", options: ["لأنه كان يكره أن يكون بكاءً شكاءً مثل أخته الصغيرة.", "لأن الدواء لم يكن مؤلمًا جدًّا."], correctIndex: 0, feedback: "ممتاز! شخصيته كانت تتحمل الألم وترفض الشكوى أو الضعف." },
+                        { teacherMsg: "شخصية قوية! في الليل، كان يلف نفسه باللحاف بالكامل، ما السر وراء ذلك؟", options: ["كان يخاف من العفاريت التي يتخيلها تملأ الغرفة.", "لأنه كان يشعر ببرد شديد في غرفته الصغيرة."], correctIndex: 0, feedback: "بالضبط، خياله كان مرعبًا ليلاً، واللحاف حصنه المادي الوحيد!" },
+                        { teacherMsg: "ومتى كانت تنتهي هذه الأوهام والمخاوف؟", options: ["بطلوع الفجر وسماع أصوات النساء يعدن بجرار الماء.", "عندما يستيقظ والده لشرب القهوة."], correctIndex: 0, feedback: "صحيح! الفجر والضجيج البشري كان يمثل له النجاة وبداية النشاط." },
+                        { teacherMsg: "ننتقل للقناة، لماذا كان الصبي يتمنى بشدة أن تبتلعه سمكة ضخمة هناك؟", options: ["ليظفر في بطنها بخاتم سليمان ويطلب من الخادم أن يعبر به.", "لكي يتخلص من آلام عينيه ومتاعب حياته الصعبة."], correctIndex: 0, feedback: "هذا يوضح طموحه للعبور واستكشاف العالم المجهول خلف القناة!" },
+                        { teacherMsg: "لغويًّا، طه حسين استخدم كلمات مثل (يُرجّح) و(أكبر ظنه) كثيرًا في البداية. علام يدل ذلك؟", options: ["يدل على حذره وتردده وانعدام يقينه بشأن الماضي البعيد.", "ضعف في لغته العربية وعدم ثقته بنفسه."], correctIndex: 0, feedback: "تفسير دقيق ورائع لأسلوب الكاتب وموضوعيته." },
+                        { teacherMsg: "أخيرًا، استعان طه حسين بحواس أخرى لتعويض البصر، ما الحاسة التي اعتمد عليها للاستمتاع بنشيد الشاعر وإدراك أصوات الليل؟", options: ["حاسة السمع.", "حاسة اللمس."], correctIndex: 0, feedback: "أحسنت! السمع كان بوابته الرئيسية وأداته للتواصل مع العالم الخارجي. انتهت محادثتنا بنجاح!" }
                     ]
                 }
             ]
@@ -513,10 +562,20 @@
                             shakeWordId: null
                         }));
                     }
+                    else if (sec.type === 'matching') {
+                        this.state.progress[sec.id] = { answered: 0, total: sec.pairs.length, score: 0 };
+                        this.state.sectionData[sec.id] = {
+                            rightItems: shuffleArray(sec.pairs.map(p => ({ id: p.id, text: p.right }))),
+                            leftItems: shuffleArray(sec.pairs.map(p => ({ id: p.id, text: p.left }))),
+                            selectedRight: null,
+                            selectedLeft: null,
+                            matchedPairs: [],
+                            wrongAttempt: false
+                        };
+                    }
                 });
             },
             renderLayout() {
-                // 🛑 [AI GUARD]: ممنوع تعديل الهيكل الأساسي أو الترويسة (Header) أو التذييل (Footer)
                 const root = document.getElementById('app-root');
                 let sectionsContainers = '';
                 APP_DATA.sections.forEach(sec => { sectionsContainers += `<div id="section-${sec.id}" class="hidden"></div>`; });
@@ -591,6 +650,7 @@
                     case 'chatbot': return this.renderChatbot(sectionData);
                     case 'story': return this.renderStory(sectionData);
                     case 'hotspot': return this.renderHotspot(sectionData);
+                    case 'matching': return this.renderMatching(sectionData);
                     default: return '';
                 }
             },
@@ -873,6 +933,116 @@
                         </div>
                     </div>
                 </div>`;
+            },
+
+            // --- دالة العرض الرئيسية لقسم المطابقة والتوصيل ---
+            renderMatching(sectionData) {
+                let html = `<div class="fade-in" id="${sectionData.id}-matching-wrapper">`;
+                if (sectionData.description) { html += `<div class="text-center mb-8"><p class="text-lg md:text-xl text-${sectionData.theme}-800 font-semibold bg-${sectionData.theme}-50 bg-opacity-60 p-4 md:p-5 rounded-2xl shadow-sm inline-block w-full">${sectionData.description}</p></div>`; }
+
+                html += `<div id="${sectionData.id}-matching-container">`;
+                html += this.renderMatchingInner(sectionData);
+                html += `</div>`;
+
+                html += `<div id="section-result-area-${sectionData.id}">`;
+                const progress = this.state.progress[sectionData.id];
+                const isComplete = progress.answered === progress.total;
+                if (isComplete) { 
+                    html += `<div class="mt-12 p-8 md:p-10 bg-white border-2 border-${sectionData.theme}-200 rounded-2xl shadow-sm text-center max-w-2xl mx-auto w-full"><h3 class="text-2xl md:text-3xl font-semibold text-slate-700 mb-6">نتيجتك في قسم (${sectionData.title})</h3><div class="text-4xl md:text-5xl font-bold text-${sectionData.theme}-600 flex items-center justify-center gap-3"><span>${toArabicNum(progress.score)}</span><span class="text-2xl md:text-3xl text-slate-400 font-medium mt-1">من</span><span>${toArabicNum(progress.total)}</span></div></div>`; 
+                }
+                html += '</div>';
+                html += `<div id="section-footer-area-${sectionData.id}" class="w-full">` + this.renderSectionFooterControls(sectionData.id, isComplete) + `</div></div>`;
+                return html;
+            },
+
+            // --- الدالة المسؤولة عن التحديث الجزئي بدون رعشة ---
+            renderMatchingInner(sectionData) {
+                const sectionId = sectionData.id;
+                const theme = sectionData.theme;
+                const state = this.state.sectionData[sectionId];
+                const progress = this.state.progress[sectionId];
+                const isComplete = progress.answered === progress.total;
+
+                let html = `<div class="bg-white rounded-2xl p-4 md:p-6 shadow-sm border border-slate-200 mb-8 relative transition-all duration-300 ${state.wrongAttempt ? 'shake ring-2 ring-rose-400' : ''}">`;
+                html += `<div class="flex justify-between items-center mb-6 px-4 bg-slate-50 py-3 rounded-xl border border-slate-100">`;
+                html += `<span class="text-${theme}-600 font-bold text-lg md:text-xl">اربط بين كل بطاقتين</span>`;
+                html += `<span class="font-bold text-slate-500 bg-white px-4 py-1.5 rounded-full border border-slate-200 text-sm md:text-base tracking-wider">المطابقة: ${toArabicNum(progress.answered)} / ${toArabicNum(progress.total)}</span>`;
+                html += `</div>`;
+                
+                html += `<div class="relative w-full z-10">`;
+                
+                // خط فاصل زخرفي
+                html += `<div class="absolute left-1/2 top-0 bottom-0 w-px bg-slate-200 -translate-x-1/2 hidden md:block"></div>`;
+
+                // شبكة عرض (Grid) لضمان تطابق الارتفاعات صفاً بصف
+                html += `<div class="grid grid-cols-2 gap-x-3 md:gap-x-8 gap-y-3 w-full relative z-10">`;
+
+                const maxLength = Math.max(state.rightItems.length, state.leftItems.length);
+                
+                for (let i = 0; i < maxLength; i++) {
+                    const rightItem = state.rightItems[i];
+                    const leftItem = state.leftItems[i];
+
+                    // زر العمود الأيمن
+                    if (rightItem) {
+                        const isMatchedR = state.matchedPairs.includes(rightItem.id);
+                        const isSelectedR = state.selectedRight === rightItem.id;
+                        let rBtnClass = `w-full h-full p-3 md:p-4 rounded-xl border-2 font-bold text-center transition-all duration-300 text-sm md:text-lg flex items-center justify-center min-h-[4.5rem] md:min-h-[5rem] `;
+                        
+                        if (isMatchedR) {
+                            // اللون الأخضر الهادئ للدلالة على المطابقة الصحيحة وإبقاء البطاقة
+                            rBtnClass += `bg-emerald-50 border-emerald-200 text-emerald-700 opacity-90 cursor-default shadow-sm`;
+                        } else if (isSelectedR) {
+                            rBtnClass += `bg-${theme}-100 border-${theme}-500 text-${theme}-800 shadow-md ring-2 ring-${theme}-200 ring-offset-1`;
+                        } else if (state.wrongAttempt && state.selectedRight === rightItem.id) {
+                            rBtnClass += `bg-rose-100 border-rose-500 text-rose-800 shadow-md`;
+                        } else {
+                            rBtnClass += `bg-white border-slate-200 text-slate-700 md:hover:bg-${theme}-50 md:hover:border-${theme}-300 cursor-pointer active:scale-95 shadow-sm`;
+                        }
+
+                        html += `<button ${isMatchedR ? 'disabled' : ''} onclick="App.handleMatchingClick('${sectionId}', 'right', '${rightItem.id}')" class="${rBtnClass}">${rightItem.text}</button>`;
+                    } else {
+                        html += `<div></div>`;
+                    }
+
+                    // زر العمود الأيسر
+                    if (leftItem) {
+                        const isMatchedL = state.matchedPairs.includes(leftItem.id);
+                        const isSelectedL = state.selectedLeft === leftItem.id;
+                        let lBtnClass = `w-full h-full p-3 md:p-4 rounded-xl border-2 font-bold text-center transition-all duration-300 text-sm md:text-lg flex items-center justify-center min-h-[4.5rem] md:min-h-[5rem] `;
+                        
+                        if (isMatchedL) {
+                            // اللون الأخضر الهادئ للدلالة على المطابقة الصحيحة وإبقاء البطاقة
+                            lBtnClass += `bg-emerald-50 border-emerald-200 text-emerald-700 opacity-90 cursor-default shadow-sm`;
+                        } else if (isSelectedL) {
+                            lBtnClass += `bg-${theme}-100 border-${theme}-500 text-${theme}-800 shadow-md ring-2 ring-${theme}-200 ring-offset-1`;
+                        } else if (state.wrongAttempt && state.selectedLeft === leftItem.id) {
+                            lBtnClass += `bg-rose-100 border-rose-500 text-rose-800 shadow-md`;
+                        } else {
+                            lBtnClass += `bg-white border-slate-200 text-slate-700 md:hover:bg-emerald-50 md:hover:border-emerald-300 cursor-pointer active:scale-95 shadow-sm`;
+                        }
+
+                        html += `<button ${isMatchedL ? 'disabled' : ''} onclick="App.handleMatchingClick('${sectionId}', 'left', '${leftItem.id}')" class="${lBtnClass}">${leftItem.text}</button>`;
+                    } else {
+                        html += `<div></div>`;
+                    }
+                }
+
+                html += `</div></div></div>`; // إغلاق الشبكة والحاويات
+
+                if (isComplete) {
+                    html += `<div class="text-2xl md:text-3xl font-bold text-emerald-600 flex flex-col items-center gap-3 fade-in py-6 bg-emerald-50 border-2 border-emerald-200 w-full max-w-lg mx-auto rounded-3xl shadow-sm mt-4"><span class="text-5xl">🏆</span><span>اكتملت المطابقة بنجاح!</span></div>`;
+                }
+
+                return html;
+            },
+
+            updateMatchingPartial(sectionId) {
+                const sectionDef = APP_DATA.sections.find(s => s.id === sectionId);
+                const container = document.getElementById(`${sectionId}-matching-container`);
+                if (container) {
+                    container.innerHTML = this.renderMatchingInner(sectionDef);
+                }
             },
 
             renderErrorCorrection(sectionData) {
@@ -1165,6 +1335,7 @@
                 this.updateUI();
                 this.scrollChatToBottom(sectionId);
 
+                // تم ضبط المدة على 3 ثوانٍ لواقعية المحادثة وتجنب ملل الطالب
                 setTimeout(() => {
                     if (isCorrect) {
                         if (state.mistakesInCurrent === 0) this.state.progress[sectionId].score++;
@@ -1180,7 +1351,7 @@
                                 state.status = 'waiting_answer';
                                 this.updateUI();
                                 this.scrollChatToBottom(sectionId);
-                            }, 800);
+                            }, 3000); 
                         } else {
                             setTimeout(() => {
                                 state.history.push({ role: 'teacher', text: "لقد أنهينا المحادثة بنجاح! أحسنت 🌟" });
@@ -1188,7 +1359,7 @@
                                 this.updateUI();
                                 this.scrollChatToBottom(sectionId);
                                 this.checkFinalEvaluation();
-                            }, 800);
+                            }, 3000); 
                         }
                     } else {
                         state.mistakesInCurrent++;
@@ -1197,7 +1368,7 @@
                     }
                     this.updateUI();
                     this.scrollChatToBottom(sectionId);
-                }, 800);
+                }, 3000); 
             },
             
             scrollChatToBottom(sectionId) {
@@ -1239,7 +1410,6 @@
                         <button ${state.currentIndex === 0 ? 'disabled class="opacity-0 pointer-events-none"' : `onclick="App.handleStoryNav('${sectionId}', -1)" class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 md:hover:bg-slate-200 transition-colors active:scale-95"`}>
                             <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                         </button>
-                        <span class="text-slate-400 font-bold">${toArabicNum(state.currentIndex + 1)} / ${toArabicNum(sectionData.slides.length)}</span>
                         <button ${isComplete ? 'disabled class="opacity-0 pointer-events-none"' : `onclick="App.handleStoryNav('${sectionId}', 1)" class="w-12 h-12 flex items-center justify-center rounded-full bg-${theme}-100 text-${theme}-600 md:hover:bg-${theme}-200 transition-colors active:scale-95"`}>
                             <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                         </button>
@@ -1410,6 +1580,7 @@
                 q.paragraph.forEach((segment) => {
                     const isSelected = selectedTargets.includes(segment.id);
                     const isShaking = shakeWordId === segment.id;
+
                     let segClass = "inline leading-loose px-1.5 py-0.5 rounded transition-all duration-300 text-2xl md:text-3xl select-none ";
 
                     if (!answered) {
@@ -1504,7 +1675,7 @@
                 let qState;
                 if (sectionDef.type === 'classify' || sectionDef.type === 'sort') {
                     qState = this.state.sectionData[sectionId].questions[idx];
-                } else if (sectionDef.type === 'flashcards') {
+                } else if (sectionDef.type === 'flashcards' || sectionDef.type === 'matching') {
                     qState = this.state.sectionData[sectionId];
                 } else {
                     qState = this.state.sectionData[sectionId][idx];
@@ -1513,8 +1684,8 @@
                 qState.showHint = !qState.showHint;
                 qState.hintAnimate = qState.showHint;
 
-                if (sectionDef.type === 'flashcards') {
-                    this.updateUI(); // البطاقات القلابة لا تملك زر تلميح حالياً، ولكن كإجراء احتياطي
+                if (sectionDef.type === 'flashcards' || sectionDef.type === 'matching') {
+                    this.updateUI(); 
                 } else {
                     const hintArea = document.getElementById(`hint-area-${sectionId}-${idx}`);
                     if (hintArea) {
@@ -1650,6 +1821,60 @@
                     }, 500);
                 }
             },
+
+            handleMatchingClick(sectionId, side, itemId) {
+                const state = this.state.sectionData[sectionId];
+                if (state.wrongAttempt) return;
+
+                if (side === 'right') {
+                    state.selectedRight = state.selectedRight === itemId ? null : itemId;
+                } else {
+                    state.selectedLeft = state.selectedLeft === itemId ? null : itemId;
+                }
+
+                if (state.selectedRight && state.selectedLeft) {
+                    if (state.selectedRight === state.selectedLeft) {
+                        // Match
+                        const matchedId = state.selectedRight;
+                        state.matchedPairs.push(matchedId);
+                        state.selectedRight = null;
+                        state.selectedLeft = null;
+                        this.state.progress[sectionId].answered++;
+                        this.state.progress[sectionId].score++; 
+
+                        // ترتيب الصناديق: نقل البطاقتين المتطابقتين إلى الأسفل
+                        const rIdx = state.rightItems.findIndex(i => i.id === matchedId);
+                        const lIdx = state.leftItems.findIndex(i => i.id === matchedId);
+                        if (rIdx > -1 && lIdx > -1) {
+                            const rItem = state.rightItems.splice(rIdx, 1)[0];
+                            const lItem = state.leftItems.splice(lIdx, 1)[0];
+                            state.rightItems.push(rItem);
+                            state.leftItems.push(lItem);
+                        }
+                        
+                        this.updateMatchingPartial(sectionId);
+                        this.updateTabs();
+                        
+                        if (this.state.progress[sectionId].answered === this.state.progress[sectionId].total) {
+                            const sectionDef = APP_DATA.sections.find(s => s.id === sectionId);
+                            this.showSectionResult(sectionId, sectionDef, this.state.progress[sectionId]);
+                            this.checkFinalEvaluation();
+                        }
+                    } else {
+                        // Wrong
+                        state.wrongAttempt = true;
+                        this.updateMatchingPartial(sectionId);
+                        setTimeout(() => {
+                            state.selectedRight = null;
+                            state.selectedLeft = null;
+                            state.wrongAttempt = false;
+                            this.updateMatchingPartial(sectionId);
+                        }, 600);
+                    }
+                } else {
+                    this.updateMatchingPartial(sectionId);
+                }
+            },
             
             handleDynamicSortClick(sectionId, optIndex) {
                 const state = this.state.sectionData[sectionId]; if (state.status === 'correct' || state.animatingOut) return;
@@ -1688,6 +1913,7 @@
                 else if (secDef.type === 'chatbot') { this.state.sectionData[sectionId] = { questions: secDef.questions, currentIndex: 0, history: [{ role: 'teacher', text: secDef.questions[0].teacherMsg }], status: 'waiting_answer', mistakesInCurrent: 0 }; }
                 else if (secDef.type === 'story') { this.state.sectionData[sectionId] = { currentIndex: 0 }; this.state.progress[sectionId].answered = 1; this.state.progress[sectionId].score = secDef.slides.length; }
                 else if (secDef.type === 'hotspot') { this.state.sectionData[sectionId] = secDef.questions.map(q => ({ originalQuestion: q, selectedTargets: [], answered: false, showHint: false, hintAnimate: false, answerAnimate: false, shakeWordId: null })); }
+                else if (secDef.type === 'matching') { this.state.sectionData[sectionId] = { rightItems: shuffleArray(secDef.pairs.map(p => ({ id: p.id, text: p.right }))), leftItems: shuffleArray(secDef.pairs.map(p => ({ id: p.id, text: p.left }))), selectedRight: null, selectedLeft: null, matchedPairs: [], wrongAttempt: false }; }
                 this.updateUI(); this.scrollToContent();
             },
             handleGlobalRestart() { this.initSectionData(); if (APP_DATA.sections.length > 0) this.state.activeTab = APP_DATA.sections[0].id; this.updateUI(); this.scrollTabIntoView(this.state.activeTab); requestAnimationFrame(() => { const header = document.getElementById('main-header'); window.scrollTo({ top: header ? header.offsetHeight : 80, behavior: 'smooth' }); }); },
